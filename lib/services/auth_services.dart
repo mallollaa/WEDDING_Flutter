@@ -36,7 +36,7 @@ class AuthServices {
       final response = await client.post("api/login/",
           data: {"username": username, "password": password});
       token = response.data["access_token"];
-      print("Signin as ${response.data["username"]}");
+      print("Signin as ${token}");
     } on DioError catch (error) {
       print(error);
     }
