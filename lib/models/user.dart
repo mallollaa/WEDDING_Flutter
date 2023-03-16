@@ -6,11 +6,12 @@ part 'user.g.dart'; // i want u to genarate me a file form this file
 @JsonSerializable() // this should be befor the class
 class User {
   int? id;
-  // String username?
+  String username;
   User({
     this.id,
-    // this.username,
+    required this.username,
   });
+
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
   Map<String, dynamic> toJson() => _$UserToJson(this);
 }
