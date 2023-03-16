@@ -15,11 +15,8 @@ class AuthServices {
       ); // this end boin form the backend not from the router
       // this will take the info from the UI and save it inside the class model then trun it into jason
       // then it will send it to the backend
-      print("in service: ${response.data}");
       token = response.data["access_token"];
-      print(" Singup as ${response.data["username"]}");
-      print(
-          "heres the token $token"); // accses is the name of our token in the backend
+      // accses is the name of our token in the backend
     } on DioError catch (error) {
       print(error);
     }
@@ -36,11 +33,11 @@ class AuthServices {
       final response = await client.post("api/login/",
           data: {"username": username, "password": password});
       token = response.data["access_token"];
-      print("Signin as ${token}");
+      // we are acsseing the token inside the josion data in the backend
+
     } on DioError catch (error) {
       print(error);
     }
-// we are acsseing the token inside the josion data in the backend
     return token;
   }
 }
