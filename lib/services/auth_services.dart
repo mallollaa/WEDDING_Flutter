@@ -34,6 +34,7 @@ class AuthServices {
           data: {"username": username, "password": password});
       token = response.data["access_token"];
       // we are acsseing the token inside the josion data in the backend
+
     } on DioError catch (error) {
       print(error);
     }
