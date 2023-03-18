@@ -42,7 +42,9 @@ class _HomeState extends State<Home> {
                     padding: EdgeInsets.zero,
                     children: [
                       DrawerHeader(
+
                         child: Text("Welcome ${auth.user!.username}"),
+
                         decoration: const BoxDecoration(
                           color: Colors.blue,
                         ),
