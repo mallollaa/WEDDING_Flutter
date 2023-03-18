@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:wedding/providers/auth_provider.dart';
 import 'package:wedding/widgets/colors.dart';
 
 class Profile extends StatefulWidget {
@@ -55,7 +57,8 @@ class _ProfileState extends State<Profile> {
           ),
           SizedBox(height: 10),
           Text(
-            'Manal Alajmi',
+            // ------ when we logout there's an error ----
+            " ${context.watch<AuthProvider>().user!.username}",
             style: TextStyle(fontSize: 18, color: font, fontFamily: 'ro'),
           ),
           Padding(

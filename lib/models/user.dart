@@ -7,18 +7,10 @@ part 'user.g.dart'; // i want u to genarate me a file form this file
 class User {
   int? id;
   String username;
-  String? password;
-  String? firsname;
-  String? lastname;
-  String? email;
 
   User({
     this.id,
     required this.username,
-    this.password,
-    this.firsname,
-    this.lastname,
-    this.email,
   });
   // String username?
 
