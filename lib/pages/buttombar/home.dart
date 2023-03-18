@@ -25,13 +25,13 @@ class _HomeState extends State<Home> {
                 ? ListView(
                     children: [
                       ListTile(
-                        title: Text("SignUP NOW !!!"),
+                        title: Text("registers"),
                         onTap: () {
                           context.push("/signup");
                         },
                       ),
                       ListTile(
-                        title: Text("Sign In Dear :)"),
+                        title: Text("Login"),
                         onTap: () {
                           context.push("/signin");
                         },
@@ -42,7 +42,9 @@ class _HomeState extends State<Home> {
                     padding: EdgeInsets.zero,
                     children: [
                       DrawerHeader(
-                        child: Text("Welcome ${auth.user?.username} "),
+
+                        child: Text("Welcome ${auth.user!.username}"),
+
                         decoration: const BoxDecoration(
                           color: Colors.blue,
                         ),

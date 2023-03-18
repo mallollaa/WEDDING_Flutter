@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wedding/pages/buttombar/homepage.dart';
-import 'package:wedding/pages/home.dart';
+import 'package:wedding/pages/buttombar/home_bttom_page.dart';
+import 'package:wedding/pages/buttombar/home.dart';
 import 'package:go_router/go_router.dart';
 import 'package:wedding/pages/auth/signin_page.dart';
 import 'package:wedding/pages/auth/signup.dart';
