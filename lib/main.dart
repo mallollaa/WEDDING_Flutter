@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:wedding/models/categories.dart';
 import 'package:wedding/pages/buttombar/home_bttom_page.dart';
 import 'package:wedding/pages/buttombar/home.dart';
 import 'package:go_router/go_router.dart';
 import 'package:wedding/pages/auth/signin_page.dart';
 import 'package:wedding/pages/auth/signup.dart';
+import 'package:wedding/pages/buttombar/vendors/vendors.dart';
+import 'package:wedding/pages/buttombar/vendors/vendors_details_page.dart';
 import 'package:wedding/pages/landing_page.dart';
 import 'package:wedding/providers/auth_provider.dart';
 
@@ -62,13 +65,14 @@ final _router = GoRouter(
       path: '/Home',
       builder: (context, State) => LandingPage(),
     ),
-    // GoRoute(
-    //   path: '/signin',
-    //   builder: (context, state) => Login(),
-    // ),
-    // GoRoute(
-    //   path: '/detail',
-    //   builder: (context, State) => FoodDetail(),
-    // ),
+    GoRoute(
+      path: '/vendors',
+      builder: (context, state) =>
+          Vendors(categories: state.extra as Categories),
+    ),
+    GoRoute(
+      path: '/vendors/detail',
+      builder: (context, State) => MyVendorDetailPage(),
+    ),
   ],
 );

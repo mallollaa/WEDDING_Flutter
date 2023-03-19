@@ -1,10 +1,14 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:wedding/models/categories.dart';
 import 'package:wedding/widgets/categories_card.dart';
+import 'package:wedding/widgets/colors.dart';
 
 //-------- this timprory REMOVE AFTER CREATING THE MODEL----------
 const categoryData = [
@@ -30,14 +34,13 @@ const categoryData = [
   },
 ];
 
-class Vendors extends StatefulWidget {
-  Vendors({super.key});
+class Vendors extends StatelessWidget {
+  final Categories categories;
+  const Vendors({
+    Key? key,
+    required this.categories,
+  }) : super(key: key);
 
-  @override
-  State<Vendors> createState() => _VendorsState();
-}
-
-class _VendorsState extends State<Vendors> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,22 +90,50 @@ class _VendorsState extends State<Vendors> {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40),
+                padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       SizedBox(
                         height: 35,
                       ),
-                      Text(
-                        "Categories title",
-                        style: GoogleFonts.commissioner(
-                            fontSize: 24, color: Colors.grey.shade700),
+
+                      Container(
+                        padding: EdgeInsets.only(left: 20, bottom: 5),
+                        child: Row(
+                          // mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Categories title",
+                              style: GoogleFonts.commissioner(
+                                fontSize: 24,
+                                color: Colors.grey.shade700,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      // Categories(
-                      //   title: "categories",
-                      //   imageUrl: 'assets/images/photographer.jpg',
-                      // ),
+
+                      // -------- Fix this ------
+                      InkWell(
+                        onTap: () {
+                          GoRouter.of(context).push('/vendors/detail');
+                        },
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                padding: EdgeInsets.symmetric(horizontal: 10),
+                                child: CategoriesCard(
+                                  categories: Categories(
+                                    title: "test",
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ]),
               ),
             )
