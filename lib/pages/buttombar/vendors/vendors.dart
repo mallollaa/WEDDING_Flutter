@@ -10,6 +10,7 @@ import 'package:wedding/models/categories.dart';
 import 'package:wedding/providers/category_provider.dart';
 import 'package:wedding/services/category_services.dart';
 import 'package:wedding/widgets/categories_card.dart';
+import 'package:wedding/widgets/category_card.dart';
 import 'package:wedding/widgets/colors.dart';
 
 //-------- this timprory REMOVE AFTER CREATING THE MODEL----------
@@ -41,6 +42,12 @@ class Vendors extends StatelessWidget {
   const Vendors({
     Key? key,
   }) : super(key: key);
+  Widget getCategory(BuildContext context) {
+    if (context.watch<CategoryProvider>().categories.isEmpty) {
+      context.read<CategoryProvider>().getCategories();
+    }
+    return CircularProgressIndicator();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -117,52 +124,27 @@ class Vendors extends StatelessWidget {
 
                       // -------- Fix this ------
 
-                      FutureBuilder(
-                        future:
-                            context.read<CategoryProvider>().getCategories(),
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData) {
-                            return ListView.builder(
+                      context.watch<CategoryProvider>().categories.isNotEmpty
+                          ? ListView.builder(
                               shrinkWrap: true,
                               itemCount: context
                                   .watch<CategoryProvider>()
                                   .categories
                                   .length,
                               itemBuilder: (context, index) {
-                                return InkWell(
-                                  onTap: () {
-                                    GoRouter.of(context)
-                                        .push('/vendors/detail');
-                                  },
-                                  child: Row(
-                                    children: [
-                                      Expanded(
-                                        child: Container(
-                                          padding: EdgeInsets.symmetric(
-                                              horizontal: 10),
-                                          child: CategoriesCard(
-                                            title: context
-                                                .watch<CategoryProvider>()
-                                                .categories[index]
-                                                .title,
-                                            image: context
-                                                .watch<CategoryProvider>()
-                                                .categories[index]
-                                                .image,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                return CategoryCard(
+                                  title: context
+                                      .watch<CategoryProvider>()
+                                      .categories[index]
+                                      .title,
+                                  image: context
+                                      .watch<CategoryProvider>()
+                                      .categories[index]
+                                      .image,
                                 );
                               },
-                            );
-                          } else if (snapshot.hasError) {
-                            return Text("${snapshot.error}");
-                          }
-                          return Center(child: CircularProgressIndicator());
-                        },
-                      )
+                            )
+                          : getCategory(context)
 
                       //   InkWell(
                       //     onTap: () {
