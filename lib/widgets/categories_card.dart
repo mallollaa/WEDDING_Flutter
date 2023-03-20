@@ -3,7 +3,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:wedding/models/categories.dart';
 
 class CategoriesCard extends StatefulWidget {
-  const CategoriesCard({required Categories categories});
+  CategoriesCard({
+    required this.title,
+    required this.image,
+  });
+
+  String title;
+  String image;
 
   @override
   State<CategoriesCard> createState() => _CategoriesCardState();
@@ -38,7 +44,7 @@ class _CategoriesCardState extends State<CategoriesCard> {
 
           /// --------- ImageUrl is here ---------
 
-          image: AssetImage("assets/images/photographer.jpg"),
+          image: NetworkImage(widget.image),
           fit: BoxFit.cover,
         ),
       ),
@@ -49,7 +55,7 @@ class _CategoriesCardState extends State<CategoriesCard> {
               padding: EdgeInsets.symmetric(horizontal: 5.0),
               ///// --------- Title is here --------
               child: Text(
-                "Photographer",
+                widget.title,
                 style: GoogleFonts.commissioner(
                     fontSize: 25,
                     color: Colors.white70,
