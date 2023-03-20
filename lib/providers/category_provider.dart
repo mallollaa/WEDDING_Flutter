@@ -3,23 +3,19 @@ import 'package:wedding/models/categories.dart';
 import 'package:wedding/services/category_services.dart';
 
 class CategoryProvider with ChangeNotifier {
-  List<Categories> _categories = [];
-  bool _isLoading = false;
-  List<Categories> get categories => _categories;
-  bool get isLoading => _isLoading;
+  List<Category> categories = [];
+
+  CategoryProvider() {
+    getCategories();
+  }
+
+  // Actions
+  final categoriesServices = CategoryServices();
 
   Future<void> getCategories() async {
-    _isLoading = true;
+    final categoriesResponse = await categoriesServices.getCategories();
+    categories = categoriesResponse;
+    print("provider $categories");
     notifyListeners();
-
-    try {
-      _categories = await CategoryServices.getCategories();
-      _isLoading = false;
-      notifyListeners();
-    } catch (e) {
-      _isLoading = false;
-      notifyListeners();
-      throw e;
-    }
   }
 }

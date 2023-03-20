@@ -6,17 +6,15 @@ import 'package:wedding/models/vendor.dart';
 part 'categories.g.dart'; // i want u to genarate me a file form this file
 
 @JsonSerializable()
-class Categories {
+class Category {
   String title;
   String image;
-  List<Vendor>? Vendors;
 
-  Categories({
+  Category({
     required this.title,
     required this.image,
-    this.Vendors,
   });
-  factory Categories.fromJson(Map<String, dynamic> json) =>
-      _$CategoriesFromJson(json);
-  Map<String, dynamic> toJson() => _$CategoriesToJson(this);
+  factory Category.fromJson(Map<String, dynamic> json) =>
+      _$CategoryFromJson(json);
+  Map<String, dynamic> toJson() => _$CategoryToJson(this);
 }
