@@ -109,15 +109,18 @@ class _HomeState extends State<Home> {
                 style: TextStyle(color: Color(0xff102733), fontSize: 20),
               ),
             ),
-            Container(
-              height: 100,
-              child: ListView.builder(
-                  itemCount: 3,
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return EventTile();
-                  }),
+            InkWell(
+              onTap: () => GoRouter.of(context).push('/package/detail'),
+              child: Container(
+                height: 100,
+                child: ListView.builder(
+                    itemCount: 3,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return EventTile();
+                    }),
+              ),
             ),
             SizedBox(
               height: 16,
@@ -126,17 +129,28 @@ class _HomeState extends State<Home> {
               padding: const EdgeInsets.only(left: 20),
               child: Text(
                 "Popular Events",
-                style: TextStyle(
-                    color: Color.fromARGB(255, 54, 4, 4), fontSize: 20),
+                style: TextStyle(color: Color(0xff102733), fontSize: 20),
               ),
             ),
-            Container(
-              child: ListView.builder(
-                  itemCount: 3,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    return PopularEventTile();
-                  }),
+            InkWell(
+              onTap: () {
+                GoRouter.of(context).push('/categories/vendors/detail');
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20, top: 12),
+                child: Column(
+                  children: [
+                    Container(
+                      child: ListView.builder(
+                          itemCount: 3,
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            return PopularEventTile();
+                          }),
+                    ),
+                  ],
+                ),
+              ),
             )
           ],
         ),

@@ -71,6 +71,13 @@ flutter:
     - assets/images/Venues.jpg
     - assets/images/music.jpg
     - assets/images/wedding cake.jpg
+    - assets/images/hands.jpg
+    - assets/images/cake.jpg
+    - assets/images/profilePic.jpeg
+    - assets/images/bridefrinds2.jpg
+    - assets/images/bridfriends.jpg
+    - assets/images/MsAndMrs.jpg
+    - assets/images/rings.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
