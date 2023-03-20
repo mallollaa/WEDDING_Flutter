@@ -9,6 +9,8 @@ import 'package:wedding/pages/auth/signup.dart';
 import 'package:wedding/pages/buttombar/vendors/vendors.dart';
 import 'package:wedding/pages/buttombar/vendors/vendors_details_page.dart';
 import 'package:wedding/pages/landing_page.dart';
+import 'package:wedding/pages/pakege_datail_page.dart';
+import 'package:wedding/pages/popular_event_detail.dart';
 import 'package:wedding/providers/auth_provider.dart';
 
 void main() {
@@ -39,7 +41,8 @@ class MyApp extends StatelessWidget {
       title: 'Zafaf',
       theme: ThemeData(
         // brightness: Brightness.dark,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 173, 14, 14)),
         useMaterial3: true,
       ),
     );
@@ -73,6 +76,14 @@ final _router = GoRouter(
     GoRoute(
       path: '/vendors/detail',
       builder: (context, State) => MyVendorDetailPage(),
+    ),
+    GoRoute(
+      path: '/package/detail',
+      builder: (context, State) => MyPackagePage(),
+    ),
+    GoRoute(
+      path: '/categories/vendors/detail',
+      builder: (context, State) => MyDetailCategoriesPage(),
     ),
   ],
 );

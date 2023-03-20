@@ -44,102 +44,96 @@ class Vendors extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xfff705B67),
-        title: Row(
-          children: [
-            Text(
-              "Vendors",
-              style:
-                  GoogleFonts.commissioner(fontSize: 24, color: Colors.white),
-            ),
-          ],
-        ),
-      ),
-      backgroundColor: Color(0xfff705B67),
-      body: SingleChildScrollView(
-        child: SafeArea(
-            child: Column(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 20,
+        backgroundColor: Color(0xffDAD6D6),
+        body: CustomScrollView(slivers: [
+          SliverAppBar(
+            backgroundColor: Color(0xffDAD6D6),
+            elevation: 0,
+            pinned: true,
+            centerTitle: false,
+            expandedHeight: 100.0,
+            stretch: true,
+            flexibleSpace: const FlexibleSpaceBar(
+              background: Image(
+                image: AssetImage("assets/images/Venues.jpg"),
+                fit: BoxFit.cover,
               ),
-              child: Row(
-                children: <Widget>[
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.arrow_back_ios, // change the place of the arrow
-                      color: Colors.grey,
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int index) {
+                return Container(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Container(
+                          // why ?
+                          decoration: BoxDecoration(
+                            color: Color(0xffDAD6D6),
+                            borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(20),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  SizedBox(
+                                    height: 25,
+                                  ),
+
+                                  Container(
+                                    padding:
+                                        EdgeInsets.only(left: 20, bottom: 5),
+                                    child: Row(
+                                      // mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          "Categories title",
+                                          style: GoogleFonts.commissioner(
+                                            fontSize: 24,
+                                            color: Colors.grey.shade700,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+
+                                  // -------- Fix this ------
+                                  InkWell(
+                                    onTap: () {
+                                      GoRouter.of(context)
+                                          .push('/vendors/detail');
+                                    },
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          child: Container(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 10),
+                                            child: CategoriesCard(
+                                              categories: Categories(
+                                                title: "test",
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ]),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
+                );
+              },
+              childCount: 3,
             ),
-            SizedBox(
-              height: 12,
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height, // why ?
-              width: MediaQuery.of(context).size.width, // why ?
-              decoration: BoxDecoration(
-                color: Color(0xffDAD6D6),
-                borderRadius: BorderRadius.vertical(
-                  top: Radius.circular(50),
-                ),
-              ),
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      SizedBox(
-                        height: 35,
-                      ),
-
-                      Container(
-                        padding: EdgeInsets.only(left: 20, bottom: 5),
-                        child: Row(
-                          // mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Categories title",
-                              style: GoogleFonts.commissioner(
-                                fontSize: 24,
-                                color: Colors.grey.shade700,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      // -------- Fix this ------
-                      InkWell(
-                        onTap: () {
-                          GoRouter.of(context).push('/vendors/detail');
-                        },
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Container(
-                                padding: EdgeInsets.symmetric(horizontal: 10),
-                                child: CategoriesCard(
-                                  categories: Categories(
-                                    title: "test",
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ]),
-              ),
-            )
-          ],
-        )),
-      ),
-    );
+          )
+        ]));
   }
 }
