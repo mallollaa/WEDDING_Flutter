@@ -6,6 +6,7 @@ import 'package:wedding/pages/buttombar/home.dart';
 import 'package:go_router/go_router.dart';
 import 'package:wedding/pages/auth/signin_page.dart';
 import 'package:wedding/pages/auth/signup.dart';
+import 'package:wedding/pages/buttombar/search_page.dart';
 import 'package:wedding/pages/buttombar/vendors/vendors.dart';
 import 'package:wedding/pages/buttombar/vendors/vendors_details_page.dart';
 import 'package:wedding/pages/landing_page.dart';
