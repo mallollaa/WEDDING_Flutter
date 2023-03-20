@@ -20,9 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
   PageController pageController = PageController();
   List<Widget> pages = [
     Home(),
-    Vendors(
-      categories: Categories(title: "testtt"), // --- we gotta proplem here
-    ),
+    Vendors(), // --- we gotta proplem here
     Search(),
     Profile()
   ];

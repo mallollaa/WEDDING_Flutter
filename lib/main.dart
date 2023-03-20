@@ -13,6 +13,7 @@ import 'package:wedding/pages/landing_page.dart';
 import 'package:wedding/pages/pakege_datail_page.dart';
 import 'package:wedding/pages/popular_event_detail.dart';
 import 'package:wedding/providers/auth_provider.dart';
+import 'package:wedding/providers/category_provider.dart';
 
 void main() {
   runApp(
@@ -21,9 +22,9 @@ void main() {
         ChangeNotifierProvider(
           create: (context) => AuthProvider(),
         ),
-        // ChangeNotifierProvider(
-        //   create: (context) => AuthProvider(),
-        // ),
+        ChangeNotifierProvider(
+          create: (context) => CategoryProvider(),
+        ),
       ],
       child: MyApp(),
     ),
@@ -71,8 +72,7 @@ final _router = GoRouter(
     ),
     GoRoute(
       path: '/vendors',
-      builder: (context, state) =>
-          Vendors(categories: state.extra as Categories),
+      builder: (context, state) => Vendors(),
     ),
     GoRoute(
       path: '/vendors/detail',
