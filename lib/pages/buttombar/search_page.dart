@@ -12,17 +12,6 @@ class Search extends StatefulWidget {
 class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color.fromARGB(255, 233, 218, 226),
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Column(
-            children: <Widget>[
-              Padding(padding: EdgeInsets.symmetric(horizontal: 20))
-            ],
-          ),
-        ),
-      ),
-    );
+    return Scaffold();
   }
 }

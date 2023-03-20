@@ -13,31 +13,6 @@ import 'package:wedding/widgets/categories_card.dart';
 import 'package:wedding/widgets/category_card.dart';
 import 'package:wedding/widgets/colors.dart';
 
-//-------- this timprory REMOVE AFTER CREATING THE MODEL----------
-
-// const categoryData = [
-//   {
-//     'title': 'photographer',
-//     'imgUrl': 'assets/images/photographer.jpg',
-//   },
-//   {
-//     'title': 'Venues',
-//     'imgUrl': 'assets/images/Venues.jpg',
-//   },
-//   {
-//     'title': 'Makeup',
-//     'imgUrl': 'assets/images/Makeup.jpg',
-//   },
-//   {
-//     'title': 'Wedding Cake',
-//     'imgUrl': 'assets/images/wedding cake.jpg',
-//   },
-//   {
-//     'title': 'Music & Dj',
-//     'imgUrl': 'assets/images/music.jpg',
-//   },
-// ];
-
 class Vendors extends StatelessWidget {
   const Vendors({
     Key? key,
@@ -145,25 +120,6 @@ class Vendors extends StatelessWidget {
                               },
                             )
                           : getCategory(context)
-
-                      //   InkWell(
-                      //     onTap: () {
-                      //       GoRouter.of(context).push('/vendors/detail');
-                      //     },
-                      //     child: Row(
-                      //       children: [
-                      //         Expanded(
-                      //           child: Container(
-                      //             padding: EdgeInsets.symmetric(horizontal: 10),
-                      //             child: CategoriesCard(
-                      //               categories: Categories(
-                      //                 title: "test",
-                      //               ),
-                      //             ),
-                      //           ),
-                      //         ),
-                      //       ],
-                      //     ),
                     ]),
               ),
             )
