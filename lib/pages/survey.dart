@@ -1,55 +1,107 @@
-// import 'package:flutter/gestures.dart';
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:go_router/go_router.dart';
 
-// void main() {
-//   runApp(const Survey());
-// }
+class Survey extends StatefulWidget {
+  Survey({super.key});
 
-// class Survey extends StatelessWidget {
-//   const Survey({super.key});
+  @override
+  State<Survey> createState() => _SurveyState();
+}
 
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Flutter Demo',
-//       theme: ThemeData(
-//         primarySwatch: Colors.blue,
-//       ),
-//       home: const MyHomePage(),
-//     );
-//   }
-// }
+class _SurveyState extends State<Survey> {
+  String SelectedBudget = '';
+  DateTime selectedDate = DateTime.now();
+  String LoveBirds = '';
+  var item1 = ['Bride', 'Groom'];
+  var items = [
+    '1000KD',
+    '2000KD',
+    '3000KD',
+    '4000KD',
+    '5000KD',
+    '6000KD',
+    '7000KD',
+    '8000KD',
+    '9000KD',
+    '10000KD',
+  ];
 
-// class MyHomePage extends StatelessWidget {
-//   const MyHomePage({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xffDAD6D6),
+      appBar: AppBar(
+        title: Text("Please Answer the survey"),
+        titleTextStyle:
+            TextStyle(color: Color(0xfff705B67), fontWeight: FontWeight.bold),
+      ),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Are You the Bride or the Groom?"),
+              DropdownButton(
+                hint: Text(LoveBirds.isEmpty ? "choose" : LoveBirds),
+                items: item1.map((String item1) {
+                  return DropdownMenuItem(
+                    value: item1,
+                    child: Text(item1),
+                  );
+                }).toList(),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    LoveBirds = newValue!;
+                  });
+                },
+              ),
+              SizedBox(),
+              Text("How much is your budget ?"),
+              DropdownButton(
+                hint: Text(SelectedBudget.isEmpty ? "budgets" : SelectedBudget),
+                items: items.map((String items) {
+                  return DropdownMenuItem(
+                    value: items,
+                    child: Text(items),
+                  );
+                }).toList(),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    SelectedBudget = newValue!;
+                  });
+                },
+              ),
+              Text("When is you wedding date?"),
+              TextButton(
+                child: Text("${selectedDate}"),
+                onPressed: () {
+                  DatePicker.showDatePicker(context,
+                      showTitleActions: true,
+                      minTime: DateTime(2023, 3, 30),
+                      maxTime: DateTime(2024, 3, 20), onChanged: (date) {
+                    print('change $date');
+                  }, onConfirm: (date) {
+                    setState(() {
+                      selectedDate = date;
+                    });
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//         appBar: AppBar(
-//           title: const Text(
-//             'Flutter Clickable Text Example',
-//           ),
-//         ),
-//         body: Center(
-//             child: RichText(
-//           text: TextSpan(
-//             text: 'Here is the ',
-//             style: const TextStyle(fontSize: 30, color: Colors.black),
-//             children: <TextSpan>[
-//               TextSpan(
-//                   text: 'clickable ',
-//                   recognizer: TapGestureRecognizer()
-//                     ..onTap = () {
-//                       debugPrint('The button is clicked!');
-//                     },
-//                   style: const TextStyle(
-//                     color: Colors.blue,
-//                   )),
-//               const TextSpan(text: 'text!'),
-//             ],
-//           ),
-//         )));
-//   }
-// }
+                    print('confirm $date');
+                  }, currentTime: DateTime.now(), locale: LocaleType.en);
+                },
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    context.push("/MyHomePage");
+                  },
+                  child: Text("SUBMIT"))
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}

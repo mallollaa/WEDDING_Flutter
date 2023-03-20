@@ -12,6 +12,7 @@ import 'package:wedding/pages/buttombar/vendors/vendors_details_page.dart';
 import 'package:wedding/pages/landing_page.dart';
 import 'package:wedding/pages/pakege_datail_page.dart';
 import 'package:wedding/pages/popular_event_detail.dart';
+import 'package:wedding/pages/survey.dart';
 import 'package:wedding/providers/auth_provider.dart';
 import 'package:wedding/providers/category_provider.dart';
 
@@ -52,11 +53,15 @@ class MyApp extends StatelessWidget {
 }
 
 final _router = GoRouter(
-  initialLocation: '/MyHomePage',
+  initialLocation: '/Home',
   routes: [
     GoRoute(
       path: '/MyHomePage',
       builder: (context, state) => MyHomePage(),
+    ),
+    GoRoute(
+      path: '/survey',
+      builder: (context, state) => Survey(),
     ),
     GoRoute(
       path: '/signup',

@@ -35,7 +35,7 @@ class SignupPage extends StatelessWidget {
                     username: usernameController.text,
                     password: passwordController.text);
 
-                context.pop();
+                context.push("/survey");
               },
               child: const Text("Sign Up"),
             )
