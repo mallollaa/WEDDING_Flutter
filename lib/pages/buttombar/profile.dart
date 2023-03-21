@@ -102,3 +102,10 @@ class _ProfileState extends State<Profile> {
     );
   }
 }
+// ListTile(
+//                         title: const Text("Logout"),
+//                         trailing: const Icon(Icons.logout),
+//                         onTap: () {
+//                           auth.signout();
+//                           context.pop();
+//                         },

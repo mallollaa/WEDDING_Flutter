@@ -7,8 +7,8 @@ import 'package:go_router/go_router.dart';
 import 'package:wedding/pages/auth/signin_page.dart';
 import 'package:wedding/pages/auth/signup.dart';
 import 'package:wedding/pages/buttombar/search_page.dart';
-import 'package:wedding/pages/buttombar/vendors/vendors.dart';
-import 'package:wedding/pages/buttombar/vendors/vendors_details_page.dart';
+import 'package:wedding/pages/buttombar/vendors/categories_page.dart';
+import 'package:wedding/pages/buttombar/vendors/services_details_page.dart';
 import 'package:wedding/pages/landing_page.dart';
 import 'package:wedding/pages/pakege_datail_page.dart';
 import 'package:wedding/pages/popular_event_detail.dart';
@@ -77,11 +77,11 @@ final _router = GoRouter(
     ),
     GoRoute(
       path: '/vendors',
-      builder: (context, state) => Vendors(),
+      builder: (context, state) => MyCategoryPage(),
     ),
     GoRoute(
       path: '/vendors/detail',
-      builder: (context, State) => MyVendorDetailPage(),
+      builder: (context, State) => MyServiceDetailPage(),
     ),
     GoRoute(
       path: '/package/detail',
