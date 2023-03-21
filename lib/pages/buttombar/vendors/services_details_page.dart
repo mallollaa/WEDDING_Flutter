@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 import 'package:wedding/widgets/vendor/background.dart';
-import 'package:wedding/widgets/vendor/vender_Buttom_detail.dart';
+import 'package:wedding/widgets/vendor/service_Buttom_detail.dart';
 
-class MyVendorDetailPage extends StatefulWidget {
+class MyServiceDetailPage extends StatefulWidget {
   @override
-  State<MyVendorDetailPage> createState() => _MyVendorDetailPageState();
+  State<MyServiceDetailPage> createState() => _MyServiceDetailPageState();
 }
 
-class _MyVendorDetailPageState extends State<MyVendorDetailPage> {
+class _MyServiceDetailPageState extends State<MyServiceDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +24,7 @@ class _MyVendorDetailPageState extends State<MyVendorDetailPage> {
           FractionallySizedBox(
             alignment: Alignment.bottomCenter,
             heightFactor: 0.65,
-            child: VenderButtomDetail(),
+            child: VenderServiceButtomDetail(),
           ),
         ],
       ),
