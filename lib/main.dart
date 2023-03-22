@@ -8,8 +8,15 @@ import 'package:go_router/go_router.dart';
 import 'package:wedding/pages/auth/signin_page.dart';
 import 'package:wedding/pages/auth/signup.dart';
 import 'package:wedding/pages/buttombar/search_page.dart';
+
+import 'package:wedding/pages/buttombar/vendors/backgroundVendor.dart';
+import 'package:wedding/pages/buttombar/vendors/listV.dart';
+import 'package:wedding/pages/buttombar/vendors/vendors.dart';
+import 'package:wedding/pages/buttombar/vendors/vendors_details_page.dart';
+
 import 'package:wedding/pages/buttombar/vendors/categories_page.dart';
 import 'package:wedding/pages/buttombar/vendors/services_details_page.dart';
+
 import 'package:wedding/pages/landing_page.dart';
 import 'package:wedding/pages/pakege_datail_page.dart';
 import 'package:wedding/pages/popular_event_detail.dart';
@@ -59,7 +66,7 @@ class MyApp extends StatelessWidget {
 }
 
 final _router = GoRouter(
-  initialLocation: '/Home',
+  initialLocation: '/categories/listofvendor',
   routes: [
     GoRoute(
       path: '/MyHomePage',
@@ -96,6 +103,14 @@ final _router = GoRouter(
     GoRoute(
       path: '/categories/vendors/detail',
       builder: (context, State) => MyDetailCategoriesPage(),
+    ),
+    GoRoute(
+      path: '/categories/LifOfVendors',
+      builder: (context, State) => BackgroundVendor(),
+    ),
+    GoRoute(
+      path: '/categories/listofvendor',
+      builder: (context, State) => ListVendor(),
     ),
   ],
 );
