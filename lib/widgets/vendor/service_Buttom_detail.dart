@@ -17,11 +17,11 @@ class VenderServiceButtomDetail extends StatefulWidget {
 
 List<String> imageList = [
   "assets/images/cake.jpg",
-  "assets/images/music.jpg",
-  "assets/images/rings.jpg",
-  "assets/images/cake.jpg",
-  "assets/images/music.jpg",
-  "assets/images/rings.jpg",
+  "assets/images/cake1.jpg",
+  "assets/images/cake2.jpg",
+  "assets/images/cake3.jpg",
+  "assets/images/cake4.jpg",
+  "assets/images/cake5.jpg",
 ];
 
 class _VenderServiceButtomDetailState extends State<VenderServiceButtomDetail> {
@@ -101,7 +101,7 @@ class _VenderServiceButtomDetailState extends State<VenderServiceButtomDetail> {
                                               child: ClipRRect(
                                                 // ----------- Item Image -------------------
                                                 child: Image.asset(
-                                                  "assets/images/cake.jpg",
+                                                  imageList[index],
                                                   fit: BoxFit.cover,
                                                   width: MediaQuery.of(context)
                                                           .size

@@ -17,28 +17,30 @@ class SigninPage extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            const Text("Sign In"),
-            TextField(
-              decoration: const InputDecoration(hintText: 'Username'),
-              controller: usernameController,
-            ),
-            TextField(
-              decoration: const InputDecoration(hintText: 'Password'),
-              controller: passwordController,
-              obscureText: true,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                context.read<AuthProvider>().signin(
-                    username: usernameController.text,
-                    password: passwordController.text);
-                context.go('/MyHomePage');
-              },
-              child: const Text("Sign In"),
-            )
-          ],
+        child: Form(
+          child: Column(
+            children: [
+              const Text("Sign In"),
+              TextFormField(
+                decoration: const InputDecoration(hintText: 'Username'),
+                controller: usernameController,
+              ),
+              TextFormField(
+                decoration: const InputDecoration(hintText: 'Password'),
+                controller: passwordController,
+                obscureText: true,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  context.read<AuthProvider>().signin(
+                      username: usernameController.text,
+                      password: passwordController.text);
+                  context.go('/MyHomePage');
+                },
+                child: const Text("Sign In"),
+              )
+            ],
+          ),
         ),
       ),
     );

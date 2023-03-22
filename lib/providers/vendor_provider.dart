@@ -2,6 +2,9 @@
 // import 'package:wedding/models/categories.dart';
 // import 'package:wedding/services/category_services.dart';
 
+
+
+//------------ Venders Provider -------------
 // class VendorProvider with ChangeNotifier {
 //   List<Category> categories = [];
 
