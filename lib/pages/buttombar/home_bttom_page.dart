@@ -3,11 +3,11 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:wedding/models/categories.dart';
 import 'package:wedding/pages/buttombar/home.dart';
-
 import 'package:wedding/pages/buttombar/profile.dart';
 import 'package:wedding/pages/buttombar/search_page.dart';
 import 'package:wedding/pages/buttombar/vendors/categories_page.dart';
 import 'package:wedding/providers/auth_provider.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({super.key});
