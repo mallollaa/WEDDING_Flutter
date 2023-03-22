@@ -22,6 +22,7 @@ import 'package:wedding/pages/survey.dart';
 import 'package:wedding/providers/auth_provider.dart';
 import 'package:wedding/providers/category_provider.dart';
 import 'dart:ui';
+import 'package:wedding/widgets/vendor/service_Buttom_detail.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -93,7 +94,7 @@ final _router = GoRouter(
     ),
     GoRoute(
       path: '/vendors/service/detail',
-      // builder: (context, State) => VenderServiceButtomDetail(),
+      builder: (context, State) => VenderServiceButtomDetail(),
     ),
     GoRoute(
       path: '/package/detail',
