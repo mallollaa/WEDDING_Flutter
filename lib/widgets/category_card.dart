@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:wedding/widgets/category/categories_card.dart';
+import 'package:wedding/widgets/categories_card.dart';
 
 import '../providers/category_provider.dart';
 
@@ -15,7 +15,7 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        GoRouter.of(context).push('/vendors/detail');
+        GoRouter.of(context).push('/vendors/service/detail');
       },
       child: Row(
         children: [
