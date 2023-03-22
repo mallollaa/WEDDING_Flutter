@@ -122,7 +122,12 @@ class MyCategoryPage extends StatelessWidget {
                             : getCategory(context)
                       ]),
                 ),
-              )
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    context.push('/categories/listofvendor');
+                  },
+                  child: Text("Press"))
             ],
           ),
         ),
