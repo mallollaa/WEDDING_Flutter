@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+
 import 'package:provider/provider.dart';
 import 'package:wedding/models/categories.dart';
 import 'package:wedding/pages/buttombar/home_bttom_page.dart';
@@ -13,7 +14,6 @@ import 'package:wedding/pages/buttombar/vendors/backgroundVendor.dart';
 import 'package:wedding/pages/buttombar/vendors/listV.dart';
 
 import 'package:wedding/pages/buttombar/vendors/categories_page.dart';
-import 'package:wedding/pages/buttombar/vendors/services_details_page.dart';
 
 import 'package:wedding/pages/landing_page.dart';
 import 'package:wedding/pages/pakege_datail_page.dart';
@@ -91,8 +91,8 @@ final _router = GoRouter(
       builder: (context, state) => MyCategoryPage(),
     ),
     GoRoute(
-      path: '/vendors/detail',
-      builder: (context, State) => MyServiceDetailPage(),
+      path: '/vendors/service/detail',
+      // builder: (context, State) => VenderServiceButtomDetail(),
     ),
     GoRoute(
       path: '/package/detail',

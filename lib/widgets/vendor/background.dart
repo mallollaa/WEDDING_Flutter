@@ -15,23 +15,23 @@ class BackgroundVenderDetail extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.fitWidth,
           ),
-          // Column(
-          //   children: <Widget>[
-          //     Expanded(
-          //       child: Align(
-          //         alignment: Alignment(0, -0.6),
-          //         child: Text(
-          //           "CupCake store",
-          //           style: TextStyle(
-          //               color: Colors.white,
-          //               fontSize: 44,
-          //               fontWeight: FontWeight.bold),
-          //           textAlign: TextAlign.center,
-          //         ),
-          //       ),
-          //     ),
-          //   ],
-          // ),
+          Column(
+            children: <Widget>[
+              Expanded(
+                child: Align(
+                  alignment: Alignment(0, -0.6),
+                  child: Text(
+                    "CupCake store",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 44,
+                        fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
