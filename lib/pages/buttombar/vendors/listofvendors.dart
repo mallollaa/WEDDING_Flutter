@@ -25,6 +25,7 @@ class ListOfVendorstate extends State<ListOfVendor> {
           FractionallySizedBox(
             alignment: Alignment.bottomCenter,
             // heightFactor: 0.65,
+            heightFactor: 0.65,
             child: VenderServiceButtomDetail(),
           ),
         ],
