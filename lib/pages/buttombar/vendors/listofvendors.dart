@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:wedding/widgets/vendor/background.dart';
-import 'package:wedding/widgets/vendor/vender_Buttom_detail.dart';
+import 'package:wedding/widgets/vendor/service_Buttom_detail.dart';
+// import 'package:wedding/widgets/vendor/vender_Buttom_detail.dart';
 
 class ListOfVendor extends StatefulWidget {
   @override
@@ -23,8 +24,8 @@ class ListOfVendorstate extends State<ListOfVendor> {
           ),
           FractionallySizedBox(
             alignment: Alignment.bottomCenter,
-            heightFactor: 0.65,
-            child: VenderButtomDetail(),
+            // heightFactor: 0.65,
+            child: VenderServiceButtomDetail(),
           ),
         ],
       ),

@@ -11,8 +11,6 @@ import 'package:wedding/pages/buttombar/search_page.dart';
 
 import 'package:wedding/pages/buttombar/vendors/backgroundVendor.dart';
 import 'package:wedding/pages/buttombar/vendors/listV.dart';
-import 'package:wedding/pages/buttombar/vendors/vendors.dart';
-import 'package:wedding/pages/buttombar/vendors/vendors_details_page.dart';
 
 import 'package:wedding/pages/buttombar/vendors/categories_page.dart';
 import 'package:wedding/pages/buttombar/vendors/services_details_page.dart';
@@ -66,7 +64,7 @@ class MyApp extends StatelessWidget {
 }
 
 final _router = GoRouter(
-  initialLocation: '/categories/listofvendor',
+  initialLocation: '/Home',
   routes: [
     GoRoute(
       path: '/MyHomePage',
@@ -103,10 +101,6 @@ final _router = GoRouter(
     GoRoute(
       path: '/categories/vendors/detail',
       builder: (context, State) => MyDetailCategoriesPage(),
-    ),
-    GoRoute(
-      path: '/categories/LifOfVendors',
-      builder: (context, State) => BackgroundVendor(),
     ),
     GoRoute(
       path: '/categories/listofvendor',

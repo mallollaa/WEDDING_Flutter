@@ -9,7 +9,6 @@ import 'package:provider/provider.dart';
 import 'package:wedding/models/categories.dart';
 import 'package:wedding/providers/category_provider.dart';
 import 'package:wedding/services/category_services.dart';
-import 'package:wedding/widgets/categories_card.dart';
 import 'package:wedding/widgets/category_card.dart';
 import 'package:wedding/widgets/colors.dart';
 
