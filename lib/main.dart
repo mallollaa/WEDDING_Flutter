@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:provider/provider.dart';
 import 'package:wedding/models/categories.dart';
 import 'package:wedding/pages/buttombar/home_bttom_page.dart';
@@ -7,10 +8,15 @@ import 'package:go_router/go_router.dart';
 import 'package:wedding/pages/auth/signin_page.dart';
 import 'package:wedding/pages/auth/signup.dart';
 import 'package:wedding/pages/buttombar/search_page.dart';
+
 import 'package:wedding/pages/buttombar/vendors/backgroundVendor.dart';
 import 'package:wedding/pages/buttombar/vendors/listV.dart';
 import 'package:wedding/pages/buttombar/vendors/vendors.dart';
 import 'package:wedding/pages/buttombar/vendors/vendors_details_page.dart';
+
+import 'package:wedding/pages/buttombar/vendors/categories_page.dart';
+import 'package:wedding/pages/buttombar/vendors/services_details_page.dart';
+
 import 'package:wedding/pages/landing_page.dart';
 import 'package:wedding/pages/pakege_datail_page.dart';
 import 'package:wedding/pages/popular_event_detail.dart';
@@ -19,6 +25,11 @@ import 'package:wedding/providers/auth_provider.dart';
 import 'package:wedding/providers/category_provider.dart';
 
 void main() {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  Future.delayed(Duration(seconds: 3), () {
+    FlutterNativeSplash.remove();
+  });
   runApp(
     MultiProvider(
       providers: [
@@ -79,11 +90,11 @@ final _router = GoRouter(
     ),
     GoRoute(
       path: '/vendors',
-      builder: (context, state) => Vendors(),
+      builder: (context, state) => MyCategoryPage(),
     ),
     GoRoute(
       path: '/vendors/detail',
-      builder: (context, State) => MyVendorDetailPage(),
+      builder: (context, State) => MyServiceDetailPage(),
     ),
     GoRoute(
       path: '/package/detail',

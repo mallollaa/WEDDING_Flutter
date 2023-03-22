@@ -137,7 +137,7 @@ class _HomeState extends State<Home> {
                 GoRouter.of(context).push('/categories/vendors/detail');
               },
               child: Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20, top: 12),
+                padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
                 child: Column(
                   children: [
                     Container(

@@ -34,7 +34,7 @@ class SigninPage extends StatelessWidget {
                 context.read<AuthProvider>().signin(
                     username: usernameController.text,
                     password: passwordController.text);
-                context.pop();
+                context.go('/MyHomePage');
               },
               child: const Text("Sign In"),
             )

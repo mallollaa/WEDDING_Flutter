@@ -3,11 +3,11 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:wedding/models/categories.dart';
 import 'package:wedding/pages/buttombar/home.dart';
-
 import 'package:wedding/pages/buttombar/profile.dart';
 import 'package:wedding/pages/buttombar/search_page.dart';
-import 'package:wedding/pages/buttombar/vendors/vendors.dart';
+import 'package:wedding/pages/buttombar/vendors/categories_page.dart';
 import 'package:wedding/providers/auth_provider.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({super.key});
@@ -20,7 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
   PageController pageController = PageController();
   List<Widget> pages = [
     Home(),
-    Vendors(), // --- we gotta proplem here
+    MyCategoryPage(), // --- we gotta proplem here
     Search(),
     Profile()
   ];
@@ -40,46 +40,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // ------- ----------- Drewaer --------------------------
-      drawer: Drawer(
-        child: Consumer<AuthProvider>(
-            builder: (context, auth, child) => !auth.isAuth
-                ? ListView(
-                    children: [
-                      ListTile(
-                        title: Text("registers"),
-                        onTap: () {
-                          context.push("/signup");
-                        },
-                      ),
-                      ListTile(
-                        title: Text("Login"),
-                        onTap: () {
-                          context.push("/signin");
-                        },
-                      )
-                    ],
-                  )
-                : ListView(
-                    padding: EdgeInsets.zero,
-                    children: [
-                      DrawerHeader(
-                        child: Text("Welcome ${auth.user!.username}"),
-                        decoration: const BoxDecoration(
-                          color: Colors.blue,
-                        ),
-                      ),
-                      ListTile(
-                        title: const Text("Logout"),
-                        trailing: const Icon(Icons.logout),
-                        onTap: () {
-                          auth.signout();
-                          context.pop();
-                        },
-                      ),
-                    ],
-                  )),
-      ),
       // ------- AppBar -----------
       appBar: selectIndex == 0
           ? AppBar(

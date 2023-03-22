@@ -9,12 +9,12 @@ import 'package:provider/provider.dart';
 import 'package:wedding/models/categories.dart';
 import 'package:wedding/providers/category_provider.dart';
 import 'package:wedding/services/category_services.dart';
-import 'package:wedding/widgets/categories_card.dart';
+import 'package:wedding/widgets/category/categories_card.dart';
 import 'package:wedding/widgets/category_card.dart';
 import 'package:wedding/widgets/colors.dart';
 
-class Vendors extends StatelessWidget {
-  const Vendors({
+class MyCategoryPage extends StatelessWidget {
+  const MyCategoryPage({
     Key? key,
   }) : super(key: key);
   Widget getCategory(BuildContext context) {
@@ -32,7 +32,7 @@ class Vendors extends StatelessWidget {
           title: Row(
             children: [
               Text(
-                "Vendors",
+                "categories",
                 style:
                     GoogleFonts.commissioner(fontSize: 24, color: Colors.white),
               ),
