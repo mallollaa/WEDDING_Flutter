@@ -26,10 +26,11 @@ class AuthProvider extends ChangeNotifier {
     if (token.isNotEmpty && Jwt.getExpiryDate(token)!.isAfter(DateTime.now())) {
       user = User.fromJson(Jwt.parseJwt(
           token)); // to convert the josn into user model , and the jwt. pa.. decode the token
-      notifyListeners();
+      // notifyListeners();
+      //Why we remove them?
       return true;
     }
-    notifyListeners();
+    // notifyListeners();
     return false;
   }
 

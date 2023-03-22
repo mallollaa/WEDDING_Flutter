@@ -13,12 +13,12 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   List<Icon> icons = [
-    Icon(Icons.person, color: maincolor),
-    Icon(Icons.settings, color: maincolor),
-    Icon(Icons.note_add, color: maincolor),
-    Icon(Icons.favorite, color: maincolor),
-    Icon(Icons.chat, color: maincolor),
-    Icon(Icons.login, color: maincolor),
+    Icon(Icons.person, color: MyColors.maincolor),
+    Icon(Icons.settings, color: MyColors.maincolor),
+    Icon(Icons.note_add, color: MyColors.maincolor),
+    Icon(Icons.favorite, color: MyColors.maincolor),
+    Icon(Icons.chat, color: MyColors.maincolor),
+    Icon(Icons.login, color: MyColors.maincolor),
   ];
 
   List titls = [
@@ -32,7 +32,7 @@ class _ProfileState extends State<Profile> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: background,
+      backgroundColor: MyColors.background,
       body: SafeArea(
           child: Column(
         children: [
@@ -42,7 +42,7 @@ class _ProfileState extends State<Profile> {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  border: Border.all(color: maincolor, width: 2),
+                  border: Border.all(color: MyColors.maincolor, width: 2),
                   shape: BoxShape.circle,
                 ),
                 child: Padding(
@@ -60,7 +60,8 @@ class _ProfileState extends State<Profile> {
           Text(
             // ------ when we logout there's an error ----
             " ${context.watch<AuthProvider>().user!.username}",
-            style: TextStyle(fontSize: 18, color: font, fontFamily: 'ro'),
+            style:
+                TextStyle(fontSize: 18, color: MyColors.font, fontFamily: 'ro'),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -87,7 +88,7 @@ class _ProfileState extends State<Profile> {
                   padding: const EdgeInsets.only(bottom: 8),
                   child: Text(
                     titls[index],
-                    style: TextStyle(fontSize: 17, color: font),
+                    style: TextStyle(fontSize: 17, color: MyColors.font),
                   ),
                 ),
                 trailing: Icon(
