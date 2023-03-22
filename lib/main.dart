@@ -24,6 +24,8 @@ import 'package:wedding/providers/category_provider.dart';
 import 'dart:ui';
 import 'package:wedding/widgets/vendor/service_Buttom_detail.dart';
 
+import 'package:wedding/widgets/vendor/service_Buttom_detail.dart';
+
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
