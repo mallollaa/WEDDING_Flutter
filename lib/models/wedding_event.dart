@@ -23,4 +23,6 @@ class WeddingEvent {
   factory WeddingEvent.fromJson(Map<String, dynamic> json) =>
       _$WeddingEventFromJson(json);
   Map<String, dynamic> toJson() => _$WeddingEventToJson(this);
+
+  fromJson(data) {}
 }
