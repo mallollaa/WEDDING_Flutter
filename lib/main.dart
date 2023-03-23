@@ -3,26 +3,25 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'package:provider/provider.dart';
 import 'package:wedding/models/categories.dart';
+import 'package:wedding/pages/booking.dart';
 import 'package:wedding/pages/buttombar/home_bttom_page.dart';
 import 'package:wedding/pages/buttombar/home.dart';
 import 'package:go_router/go_router.dart';
 import 'package:wedding/pages/auth/signin_page.dart';
-import 'package:wedding/pages/auth/signup.dart';
+
 import 'package:wedding/pages/buttombar/search_page.dart';
 
 import 'package:wedding/pages/buttombar/vendors/backgroundVendor.dart';
 import 'package:wedding/pages/buttombar/vendors/listV.dart';
 
 import 'package:wedding/pages/buttombar/vendors/categories_page.dart';
+import 'package:wedding/pages/auth/landing_register_page.dart';
 
-import 'package:wedding/pages/landing_page.dart';
 import 'package:wedding/pages/pakege_datail_page.dart';
 import 'package:wedding/pages/popular_event_detail.dart';
 import 'package:wedding/pages/survey.dart';
 import 'package:wedding/providers/auth_provider.dart';
 import 'package:wedding/providers/category_provider.dart';
-import 'dart:ui';
-import 'package:wedding/widgets/vendor/service_Buttom_detail.dart';
 
 import 'package:wedding/widgets/vendor/service_Buttom_detail.dart';
 
@@ -60,7 +59,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         // brightness: Brightness.dark,
         colorScheme:
-            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 173, 14, 14)),
+            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 59, 10, 67)),
         useMaterial3: true,
       ),
     );
@@ -80,7 +79,7 @@ final _router = GoRouter(
     ),
     GoRoute(
       path: '/signup',
-      builder: (context, state) => SignupPage(),
+      builder: (context, state) => MyRegisterLandingPage(),
     ),
     GoRoute(
       path: '/signin',
@@ -88,7 +87,7 @@ final _router = GoRouter(
     ),
     GoRoute(
       path: '/Home',
-      builder: (context, State) => LandingPage(),
+      builder: (context, State) => MyRegisterLandingPage(),
     ),
     GoRoute(
       path: '/vendors',
@@ -109,6 +108,10 @@ final _router = GoRouter(
     GoRoute(
       path: '/categories/listofvendor',
       builder: (context, State) => ListVendor(),
+    ),
+    GoRoute(
+      path: '/servics/booking',
+      builder: (context, State) => MyBookingConformPage(),
     ),
   ],
 );

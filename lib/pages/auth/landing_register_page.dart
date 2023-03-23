@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:go_router/go_router.dart';
+
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:wedding/providers/auth_provider.dart';
 import 'package:wedding/widgets/colors.dart';
-import 'package:wedding/widgets/text_styles.dart';
 
-import '../../providers/auth_provider.dart';
-
-class SigninPage extends StatelessWidget {
-  SigninPage({Key? key}) : super(key: key);
-
+class MyRegisterLandingPage extends StatelessWidget {
+  MyRegisterLandingPage({Key? key}) : super(key: key);
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,25 +38,20 @@ class SigninPage extends StatelessWidget {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 40, top: 160, right: 40),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Welcome\nBack',
-                        style: GoogleFonts.commissioner(
-                            fontWeight: FontWeight.w900,
-                            fontSize: 70,
-                            color: MyColors.maincolor),
-                      ),
-                    ],
+                  padding: EdgeInsets.only(left: 30, top: 130),
+                  child: Text(
+                    'Create Account',
+                    style: GoogleFonts.commissioner(
+                        fontWeight: FontWeight.w800,
+                        fontSize: 60,
+                        color: MyColors.maincolor),
                   ),
                 ),
                 Padding(
                   padding:
                       const EdgeInsets.only(top: 40.0, left: 40, right: 40),
                   child: Text(
-                      'Wishing the groom always remember the golden rule “Happy wife, happy life” ;)',
+                      'Many people spend more time in planning the wedding than they do in planning the marriage.” Let us help you ;)',
                       style: GoogleFonts.aBeeZee(
                         fontSize: 16,
                         color: MyColors.font2,
@@ -66,20 +63,31 @@ class SigninPage extends StatelessWidget {
           SingleChildScrollView(
             child: Container(
               padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.5),
+                  top: MediaQuery.of(context).size.height * 0.28),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    margin: EdgeInsets.only(left: 35, right: 35),
+                    margin: EdgeInsets.only(left: 35, right: 35, top: 170),
                     child: Column(
                       children: [
                         TextField(
-                          style: TextStyle(color: Colors.black),
+                          style: TextStyle(color: MyColors.font),
                           decoration: InputDecoration(
-                              fillColor: Colors.grey.shade100,
-                              filled: true,
-                              hintText: "username",
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                  color: Colors.black26,
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              hintText: "Name",
+                              hintStyle: TextStyle(color: MyColors.maincolor),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                               )),
@@ -89,12 +97,47 @@ class SigninPage extends StatelessWidget {
                           height: 30,
                         ),
                         TextField(
-                          style: TextStyle(),
+                          style: TextStyle(color: MyColors.font),
+                          decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                  color: Colors.black26,
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              hintText: "Email",
+                              hintStyle: TextStyle(color: MyColors.maincolor),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              )),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        TextField(
+                          style: TextStyle(color: MyColors.font),
                           obscureText: true,
                           decoration: InputDecoration(
-                              fillColor: Colors.grey.shade100,
-                              filled: true,
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                  color: Colors.black26,
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                  color: Colors.white,
+                                ),
+                              ),
                               hintText: "Password",
+                              hintStyle: TextStyle(color: MyColors.maincolor),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                               )),
@@ -107,9 +150,9 @@ class SigninPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Sign in',
+                              'Sign Up',
                               style: GoogleFonts.commissioner(
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w700,
                                   fontSize: 27,
                                   color: MyColors.font),
                             ),
@@ -119,10 +162,11 @@ class SigninPage extends StatelessWidget {
                               child: IconButton(
                                   color: Colors.white,
                                   onPressed: () {
-                                    context.read<AuthProvider>().signin(
+                                    context.read<AuthProvider>().signup(
                                         username: usernameController.text,
                                         password: passwordController.text);
-                                    context.go('/MyHomePage');
+
+                                    context.go("/survey");
                                   },
                                   icon: Icon(
                                     Icons.arrow_forward,
@@ -138,10 +182,10 @@ class SigninPage extends StatelessWidget {
                           children: [
                             TextButton(
                               onPressed: () {
-                                context.push("/signup");
+                                context.push("/signin");
                               },
                               child: Text(
-                                'Sign Up',
+                                'Sign In',
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                     decoration: TextDecoration.underline,
@@ -150,16 +194,6 @@ class SigninPage extends StatelessWidget {
                               ),
                               style: ButtonStyle(),
                             ),
-                            TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  'Forgot Password',
-                                  style: TextStyle(
-                                    decoration: TextDecoration.underline,
-                                    color: Color(0xff4c505b),
-                                    fontSize: 18,
-                                  ),
-                                )),
                           ],
                         )
                       ],
