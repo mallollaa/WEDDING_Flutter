@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wedding/widgets/colors.dart';
 import 'package:wedding/widgets/text_styles.dart';
@@ -23,6 +24,16 @@ List<String> imageList = [
   "assets/images/cake4.jpg",
   "assets/images/cake5.jpg",
 ];
+List<String> price = [
+  "300 Kd",
+  "240 Kd",
+  "150 Kd",
+];
+List<String> title = [
+  "cherry blossom Cake",
+  "White Night Cake",
+  "Bride Flower Cake",
+];
 
 class _VenderServiceButtomDetailState extends State<VenderServiceButtomDetail> {
   @override
@@ -40,7 +51,7 @@ class _VenderServiceButtomDetailState extends State<VenderServiceButtomDetail> {
             stretch: true,
             flexibleSpace: const FlexibleSpaceBar(
               background: Image(
-                image: AssetImage("assets/images/MsAndMrs.jpg"),
+                image: AssetImage("assets/images/wedding cake.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -85,7 +96,7 @@ class _VenderServiceButtomDetailState extends State<VenderServiceButtomDetail> {
                           height: 200,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: 3,
+                            itemCount: title.length,
                             itemBuilder: (context, index) {
                               return Row(
                                 children: <Widget>[
@@ -130,14 +141,15 @@ class _VenderServiceButtomDetailState extends State<VenderServiceButtomDetail> {
                                                                     .start,
                                                             children: [
                                                               Text(
-                                                                "Blubary Cake",
+                                                                title[index],
                                                                 style: TextStyles
-                                                                    .titleTextStyle,
+                                                                    .tagLineTextStyle,
                                                               ),
                                                               Row(
                                                                 children: [
                                                                   Text(
-                                                                    "price: 22 KD",
+                                                                    price[
+                                                                        index],
                                                                     textAlign:
                                                                         TextAlign
                                                                             .start,
@@ -169,7 +181,10 @@ class _VenderServiceButtomDetailState extends State<VenderServiceButtomDetail> {
                                                                               .center,
                                                                     ),
                                                                     onPressed:
-                                                                        () {},
+                                                                        () {
+                                                                      context.go(
+                                                                          '/servics/booking');
+                                                                    },
                                                                   )
                                                                 ],
                                                               ),
@@ -258,8 +273,8 @@ class _VenderServiceButtomDetailState extends State<VenderServiceButtomDetail> {
                         height: 60,
                         alignment: Alignment.center,
                         child: Text(
-                          "List Item $index",
-                          style: TextStyle(fontSize: 30),
+                          "Visit us ", // do this
+                          style: TextStyle(fontSize: 20),
                         ),
                       ),
                     ],
@@ -357,23 +372,23 @@ class _VenderServiceButtomDetailState extends State<VenderServiceButtomDetail> {
 //   }
 // }
 
-          // Container(
-          //   child:
-          //   GridView.builder(
-          //     itemCount: imageList.length,
-          //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          //       crossAxisCount: 3,
-          //       crossAxisSpacing: 10,
-          //       mainAxisSpacing: 10,
-          //     ),
-          //     itemBuilder: ((context, index) {
-          //       return Container(
-          //         decoration: BoxDecoration(
-          //           borderRadius: BorderRadius.circular(15),
-          //           image: DecorationImage(
-          //               image: AssetImage(imageList[index]), fit: BoxFit.cover),
-          //         ),
-          //       );
-          //     }),
-          //   ),
-          // ),
+// Container(
+//   child:
+//   GridView.builder(
+//     itemCount: imageList.length,
+//     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//       crossAxisCount: 3,
+//       crossAxisSpacing: 10,
+//       mainAxisSpacing: 10,
+//     ),
+//     itemBuilder: ((context, index) {
+//       return Container(
+//         decoration: BoxDecoration(
+//           borderRadius: BorderRadius.circular(15),
+//           image: DecorationImage(
+//               image: AssetImage(imageList[index]), fit: BoxFit.cover),
+//         ),
+//       );
+//     }),
+//   ),
+// ),
