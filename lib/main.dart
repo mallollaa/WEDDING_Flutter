@@ -22,6 +22,7 @@ import 'package:wedding/pages/popular_event_detail.dart';
 import 'package:wedding/pages/survey.dart';
 import 'package:wedding/providers/auth_provider.dart';
 import 'package:wedding/providers/category_provider.dart';
+import 'package:wedding/providers/vender_services_provider.dart';
 
 import 'package:wedding/widgets/vendor/service_Buttom_detail.dart';
 
@@ -39,6 +40,9 @@ void main() {
         ),
         ChangeNotifierProvider(
           create: (context) => CategoryProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ServicesItemProvider(),
         ),
       ],
       child: MyApp(),

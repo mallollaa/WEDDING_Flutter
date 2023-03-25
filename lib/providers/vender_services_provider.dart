@@ -1,20 +1,22 @@
-// import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:wedding/models/services.dart';
+import 'package:wedding/services/vendor_services.dart';
 
-// // ------------- Vender Services Item Provider ----------
-// class ServicesItemProvider with ChangeNotifier {
-//   List<Category> categories = [];
+// ------------- Vender Services Item Provider ----------
+class ServicesItemProvider with ChangeNotifier {
+  List<Services> services = [];
 
-//   CategoryProvider() {
-//     getCategories();
-//   }
+  CategoryProvider() {
+    getServices();
+  }
 
-//   // Actions
-//   final categoriesServices = CategoryServices();
+  // Actions
+  final ItemVendorServices = ItemVenderServices();
 
-//   Future<void> getCategories() async {
-//     final categoriesResponse = await categoriesServices.getCategories();
-//     categories = categoriesResponse;
-//     print("provider $categories");
-//     notifyListeners();
-//   }
-// }
+  Future<void> getServices() async {
+    final itemvendorresponse = await ItemVendorServices.getServices();
+    services = itemvendorresponse;
+    print("provider $services");
+    notifyListeners();
+  }
+}

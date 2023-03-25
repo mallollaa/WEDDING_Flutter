@@ -15,18 +15,4 @@ class CategoryServices {
     }
     return categories;
   }
-
-  // static Future<List<Categories>> getCategories() async {
-  //   final client = Client.client;
-  //   List<Categories> category = [];
-  //   final response = await client.get('vendor/api/categories/');
-  //   category =
-  //       (response.data as List).map((e) => Categories.fromJson(e)).toList();
-  //   return category;
-  //   // }
-  //   //       throw Exception('Failed to get categories');
-  //   //     }
-  //   //   } catch (e) {
-  //   //     throw Exception('Failed to get categories: $e');
-  // }
 }

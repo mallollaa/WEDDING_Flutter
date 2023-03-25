@@ -1,34 +1,23 @@
 import 'package:dio/dio.dart';
-import 'package:wedding/models/categories.dart';
-import 'package:wedding/models/vendor.dart';
-
+import 'package:wedding/models/services.dart';
 import 'package:wedding/services/client.dart';
 
-class VendorServices {
-  Future<List<Vendors>> getVendors() async {
-    List<Vendors> vendors = [];
+class ItemVenderServices {
+  Future<List<Services>> getServices() async {
+    List<Services> item_Services = [];
     try {
-      final Response response =
-          await Client.client.get('vendor/api/categories/');
-      final List<dynamic> data = response.data;
-      vendors = data.map((e) => Vendors.fromJson(e)).toList();
+      final Response response = await Client.client.get('api/vendor/services/');
+      if (response.statusCode == 200) {
+        final List<dynamic> data = response.data;
+        print('JSON data before deserialization: $data');
+        item_Services = data.map((e) => Services.fromJson(e)).toList();
+        print('JSON data after deserialization: $item_Services');
+      } else {
+        print('Request failed with status code: ${response.statusCode}.');
+      }
     } catch (e) {
       print(e);
     }
-    return vendors;
+    return item_Services;
   }
-
-  // static Future<List<Categories>> getCategories() async {
-  //   final client = Client.client;
-  //   List<Categories> category = [];
-  //   final response = await client.get('vendor/api/categories/');
-  //   category =
-  //       (response.data as List).map((e) => Categories.fromJson(e)).toList();
-  //   return category;
-  //   // }
-  //   //       throw Exception('Failed to get categories');
-  //   //     }
-  //   //   } catch (e) {
-  //   //     throw Exception('Failed to get categories: $e');
-  // }
 }

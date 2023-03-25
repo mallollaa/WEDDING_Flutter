@@ -9,7 +9,7 @@ part of 'services.dart';
 Services _$ServicesFromJson(Map<String, dynamic> json) => Services(
       title: json['title'] as String,
       price: (json['price'] as num).toDouble(),
-      vendors: Vendors.fromJson(json['vendors'] as Map<String, dynamic>),
+      vendors: json['vendors'] as int?,
       description: json['description'] as String,
     );
 
